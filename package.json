@@ -2,13 +2,13 @@
   "name": "electron-vue-webpack-boilerplate",
   "version": "0.0.1",
   "description": "",
-  "main": "app/electron.js",
+  "main": "dist/electron.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --progress --hide-modules --config build/webpack.dev.conf.js && rimraf static && node build/dev-server.js",
-    "build": "rimraf dist && mkdirp dist && cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.prod.conf.js",
-    "build-dev": "rimraf static && mkdirp static && webpack --progress --hide-modules --config build/webpack.dev.conf.js",
-    "start": "electron app/main.js"
+    "dev-server": "webpack --progress --hide-modules --config build/webpack.dev.conf.js && rimraf static && node build/dev-server.js",
+    "build": "rimraf app/dist && mkdirp app/dist && cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.prod.conf.js",
+    "build-dev": "rimraf dist && mkdirp dist && webpack --progress --hide-modules --config build/webpack.dev.conf.js",
+    "start": "electron ./dist"
   },
   "repository": {
     "type": "git",

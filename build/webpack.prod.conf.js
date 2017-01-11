@@ -1,11 +1,12 @@
+var path = require('path')
 var webpack = require('webpack')
 var config = require('./webpack.base.conf')
 var cssLoaders = require('./css-loaders')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
-config.output.filename = '[name].[chunkhash].js'
-config.output.chunkFilename = '[id].[chunkhash].js'
+config.output.filename = '[name].js' // [name].[chunkhash]
+config.output.chunkFilename = '[id].js' // [id].[chunkhash]
 // config.output.path = path.resolve(__dirname, '../static')
 // config.output.publicPath = '../static/'
 
@@ -24,6 +25,9 @@ cssLoaders({
   config.vue.loaders[loader.key] = loader.value
 })
 
+config.output.path = path.resolve(__dirname, '../app/dist')
+config.output.publicPath =  './'
+
 config.plugins = (config.plugins || []).concat([
   // http://vuejs.github.io/vue-loader/workflow/production.html
   new webpack.DefinePlugin({
@@ -41,8 +45,8 @@ config.plugins = (config.plugins || []).concat([
   new ExtractTextPlugin('[name].[contenthash].css'),
   // see https://github.com/ampedandwired/html-webpack-plugin
   new HtmlWebpackPlugin({
-    filename: '../../app/index.html',
-    template: 'src/index.html',
+    filename: '../../app/dist/index.html',
+    template: 'src/renderer/index.html',
     inject: true,
     // minify: {
     //   removeComments: true,
@@ -51,6 +55,7 @@ config.plugins = (config.plugins || []).concat([
     //   // more options:
     //   // https://github.com/kangax/html-minifier#options-quick-reference
     // }
+    excludeChunks: ['electron']
   })
 ])
 

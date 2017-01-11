@@ -1,7 +1,6 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
-const devConfig = require('../build/webpack.dev.conf')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -9,21 +8,21 @@ let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 960, height: 640});
+  win = new BrowserWindow({width: 960, height: 640})
 
   // Add vue dev tools
   // Note: uncomments here and change the path to yours
-  //BrowserWindow.addDevToolsExtension("C:\\Users\\wuxu\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\nhdogjmejiglipccpnnnanhbledajbpd\\2.3.1_0");
+  // BrowserWindow.addDevToolsExtension("C:\\Users\\wuxu\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\nhdogjmejiglipccpnnnanhbledajbpd\\2.3.1_0");
 
   // and load the index.html of the app.
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
+    pathname: path.resolve(__dirname, './index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
   // Open the DevTools.
-  //win.webContents.openDevTools()
+  // win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {

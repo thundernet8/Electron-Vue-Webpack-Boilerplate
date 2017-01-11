@@ -25,7 +25,7 @@ Object.keys(config.entry).forEach(function (name, i) {
 })
 
 config.port = 8080;
-config.output.path = path.resolve(__dirname, '../static')
+config.output.path = path.resolve(__dirname, '../dist')
 config.output.publicPath =  'http://localhost:' + config.port + '/static/'
 
 config.plugins = (config.plugins || []).concat([
@@ -34,8 +34,8 @@ config.plugins = (config.plugins || []).concat([
   new webpack.NoErrorsPlugin(),
   // https://github.com/ampedandwired/html-webpack-plugin
   new HtmlWebpackPlugin({
-    filename: '../app/index.html',
-    template: 'src/index.html',
+    filename: '../dist/index.html',
+    template: 'src/renderer/index.html',
     inject: true
   })
 ])

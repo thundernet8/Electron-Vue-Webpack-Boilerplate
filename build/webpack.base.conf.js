@@ -1,12 +1,18 @@
 var path = require('path')
 
 module.exports = {
+  // http://webpack.github.io/docs/configuration.html#node
+  node: {
+		__filename: false,
+		__dirname: false
+	},
   entry: {
-    app: './src/app.js'
+    app: './src/renderer/index.js',
+    electron: './src/main/index.js'
   },
   output: {
-    path: path.resolve(__dirname, '../dist/static'),
-    publicPath: '../dist/static/',
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: '../dist/',
     filename: '[name].js'
   },
   resolve: {
