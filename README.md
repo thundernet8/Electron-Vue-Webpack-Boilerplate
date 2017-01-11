@@ -1,4 +1,4 @@
-# Electron-Vue-Webpack-Startup
+# Electron-Vue-Webpack-Boilerplate
 
 使用Electron、Vue.js2.0、Webpack打包和热加载开发的样板工程，用于快速搭建初始开发环境
 
