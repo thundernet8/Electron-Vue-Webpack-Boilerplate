@@ -1,9 +1,9 @@
-# Electron-Vue-Webpack-Boilerplate
+## Electron-Vue-Webpack-Boilerplate
 
 使用Electron、Vue.js2.0、Webpack打包和热加载开发的样板工程，用于快速搭建初始开发环境
 
 
-# 目录结构
+## 目录结构
 
 ```
  + app                    // 最终打包成Electron资源的文件夹
@@ -30,7 +30,7 @@
  - package.json           // 开发环境依赖 devDependencies
 ```
 
-# 命令
+## 命令
 
 ```
 npm run dev-server        // hot-load server, 会自动运行build-dev
@@ -42,6 +42,6 @@ npm run build             // 用于生产环境的build, 资源文件打包至ap
 ...                       // Electron build待添加
 ```
 
-# 截图
+## 截图
 
 ![Screenshot](./screenshot.png)
