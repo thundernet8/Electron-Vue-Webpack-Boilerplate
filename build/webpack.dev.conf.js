@@ -36,7 +36,8 @@ config.plugins = (config.plugins || []).concat([
   new HtmlWebpackPlugin({
     filename: '../dist/index.html',
     template: 'src/renderer/index.html',
-    inject: true
+    inject: true,
+    excludeChunks: ['electron']
   })
 ])
 

@@ -21,7 +21,8 @@ module.exports = {
     alias: {
       'app': path.resolve(__dirname, '../app'),
       'dist': path.resolve(__dirname, '../dist'),
-      'src': path.resolve(__dirname, '../src')
+      'src': path.resolve(__dirname, '../src'),
+      'vue': 'vue/dist/vue.js' // https://gold.xitu.io/entry/57b27747a341310060fb8abb
     }
   },
   resolveLoader: {

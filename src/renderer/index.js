@@ -1,18 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Routers from './routers'
+import routes from './routers'
 import App from './views/App'
 import store from './vuex/store'
 import { sync } from 'vuex-router-sync'
 
 Vue.use(VueRouter)
 
-let router = new VueRouter({
-  history: false
+const router = new VueRouter({
+  routes // （缩写）相当于 routes: routes
 })
-
-router.map(Routers)
 
 sync(store, router)
 
-router.start(App, '#app')
+new Vue({
+  router: router,
+  render: h => h(App) // App 主要是公共的头部尾部等内容
+}).$mount('#app')
