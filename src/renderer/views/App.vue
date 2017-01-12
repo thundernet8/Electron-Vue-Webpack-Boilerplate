@@ -16,3 +16,6 @@
     export default {
     }
 </script>
+<style>
+    p {margin: 10px; line-height: 1.5;}
+</style>

@@ -4,11 +4,10 @@ var config = require('./webpack.base.conf')
 var cssLoaders = require('./css-loaders')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var _ = require('lodash')
 
-config.output.filename = '[name].js' // [name].[chunkhash]
+config.output.filename = '[name].[chunkhash:8].js' // [name].[chunkhash]
 config.output.chunkFilename = '[id].js' // [id].[chunkhash]
-// config.output.path = path.resolve(__dirname, '../static')
-// config.output.publicPath = '../static/'
 
 // whether to generate source map for production files.
 // disabling this can speed up the build.
@@ -42,7 +41,11 @@ config.plugins = (config.plugins || []).concat([
   }),
   new webpack.optimize.OccurenceOrderPlugin(),
   // extract css into its own file
-  new ExtractTextPlugin('[name].[contenthash].css'),
+  new ExtractTextPlugin('[name].[contenthash:8].css')
+])
+
+var electronConfig = _.cloneDeep(config)
+config.plugins = config.plugins.concat([
   // see https://github.com/ampedandwired/html-webpack-plugin
   new HtmlWebpackPlugin({
     filename: '../../app/dist/index.html',
@@ -55,8 +58,13 @@ config.plugins = (config.plugins || []).concat([
     //   // more options:
     //   // https://github.com/kangax/html-minifier#options-quick-reference
     // }
-    excludeChunks: ['electron']
+    //excludeChunks: ['electron']
   })
 ])
 
-module.exports = config
+delete electronConfig.entry.app
+delete config.entry.electron
+
+electronConfig.output.filename = '[name].js' // for Electron, the main entry name is fixed in package.json, hash should removed
+
+module.exports = [config, electronConfig]

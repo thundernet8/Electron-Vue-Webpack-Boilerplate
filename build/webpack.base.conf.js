@@ -28,7 +28,7 @@ module.exports = {
   resolveLoader: {
     fallback: [path.join(__dirname, '../node_modules')]
   },
-  target: 'electron-renderer',
+  target: 'electron-renderer',  // important
   module: {
     preLoaders: [
       {

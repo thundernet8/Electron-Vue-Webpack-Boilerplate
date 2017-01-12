@@ -27,6 +27,7 @@
      - index.html
      - index.js
      - routers.js
+ + test                   // 测试文件夹
  - package.json           // 开发环境依赖 devDependencies
 ```
 
