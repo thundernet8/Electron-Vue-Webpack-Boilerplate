@@ -3,12 +3,29 @@
   "version": "0.0.1",
   "description": "",
   "main": "dist/electron.js",
+  "build": {
+    "appId": "electron-vue-webpack-boilerplate",
+    "mac": {
+      "category": "com.boilerplate.electron_vue"
+    },
+    "win": {
+      "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Atom_editor_logo.svg/1118px-Atom_editor_logo.svg.png"
+    },
+    "directories": {
+      "app": "app",
+      "buildResources": "build",
+      "output": "release"
+    }
+  },
+  "postinstall": "install-app-deps",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev-server": "webpack --progress --hide-modules --config build/webpack.dev.conf.js && rimraf static && node build/dev-server.js",
     "build": "rimraf app/dist && mkdirp app/dist && cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.prod.conf.js",
     "build-dev": "rimraf dist && mkdirp dist && webpack --progress --hide-modules --config build/webpack.dev.conf.js",
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build"
   },
   "repository": {
     "type": "git",
@@ -75,6 +92,5 @@
     "webpack": "^1.14.0",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2"
-  },
-  "dependencies": {}
+  }
 }

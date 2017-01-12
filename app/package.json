@@ -1,8 +1,8 @@
 {
   "name": "electron-vue-webpack-boilerplate",
   "version": "0.0.1",
-  "productName": "Boilerplate",
-  "description": "",
+  "productName": "Electron Boilerplate",
+  "description": "A Boilerplate for Electron App with Vue2.0",
   "main": "dist/electron.js",
   "author": {
     "name": "WuXueqian",

@@ -4,3 +4,4 @@ static/
 **/npm-debug.log
 app/dist/
 dist/
+release/

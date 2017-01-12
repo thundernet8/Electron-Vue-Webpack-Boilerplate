@@ -12,7 +12,7 @@ function createWindow () {
 
   // Add vue dev tools
   // Note: uncomments here and change the path to yours
-  // BrowserWindow.addDevToolsExtension("C:\\Users\\wuxu\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\nhdogjmejiglipccpnnnanhbledajbpd\\2.3.1_0");
+  // BrowserWindow.addDevToolsExtension('C:\\Users\\wuxu\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\nhdogjmejiglipccpnnnanhbledajbpd\\3.0.5_0')
 
   // and load the index.html of the app.
   win.loadURL(url.format({
@@ -22,7 +22,9 @@ function createWindow () {
   }))
 
   // Open the DevTools.
-  // win.webContents.openDevTools()
+  if (process.env.NODE_ENV !== 'production') {
+    win.webContents.openDevTools()
+  }
 
   // Emitted when the window is closed.
   win.on('closed', () => {

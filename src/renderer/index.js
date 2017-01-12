@@ -7,6 +7,8 @@ import { sync } from 'vuex-router-sync'
 
 Vue.use(VueRouter)
 
+Vue.config.devtools = process.env.NODE_ENV !== 'production'
+
 const router = new VueRouter({
   routes // （缩写）相当于 routes: routes
 })

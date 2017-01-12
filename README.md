@@ -34,15 +34,24 @@
 ## 命令
 
 ```
-npm run dev-server        // hot-load server, 会自动运行build-dev
+npm run dev-server        // hot-load server
 
 npm run build-dev         // 开发环境配置下build, 资源文件打包至dist
 
 npm run build             // 用于生产环境的build, 资源文件打包至app/dist
 
-...                       // Electron build待添加
+npm run pack              // 仅生成包目录, 不打包, 测试用途
+
+npm run dist              // 打包成安装程序
+
+npm run start             // 启动Electron(开发环境)
 ```
 
 ## 截图
 
 ![Screenshot](./screenshot.png)
+
+
+## Vue DevTool
+
+请打开`src/main/index.js`文件, 取消第15行注释并修改路径为你的vue devtool chrome扩展路径
