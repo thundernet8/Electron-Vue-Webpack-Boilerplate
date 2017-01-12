@@ -29,6 +29,9 @@ config.output.path = path.resolve(__dirname, '../dist')
 config.output.publicPath =  'http://localhost:' + config.port + '/static/'
 
 config.plugins = (config.plugins || []).concat([
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify('development')
+  }),
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin(),

@@ -44,7 +44,7 @@ npm run pack              // 仅生成包目录, 不打包, 测试用途
 
 npm run dist              // 打包成安装程序
 
-npm run start             // 启动Electron(开发环境)
+npm run start             // 启动Electron(开发环境, 请先运行build-dev)
 ```
 
 ## 截图

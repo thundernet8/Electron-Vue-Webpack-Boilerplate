@@ -28,6 +28,9 @@ config.output.path = path.resolve(__dirname, '../app/dist')
 config.output.publicPath =  './'
 
 config.plugins = (config.plugins || []).concat([
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify('production')
+  }),
   // http://vuejs.github.io/vue-loader/workflow/production.html
   new webpack.DefinePlugin({
     'process.env': {

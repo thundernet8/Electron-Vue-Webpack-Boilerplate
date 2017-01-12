@@ -45,7 +45,8 @@ module.exports = {
     loaders: [
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue',
+        exclude: /node_modules/
       },
       {
         test: /\.js$/,
@@ -54,11 +55,13 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json',
+        exclude: /node_modules/
       },
       {
         test: /\.html$/,
-        loader: 'vue-html'
+        loader: 'vue-html',
+        exclude: /node_modules/
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
